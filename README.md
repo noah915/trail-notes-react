@@ -21,3 +21,11 @@ Open the local URL printed by Vite, usually `http://localhost:5173`.
 - `npm run lint` checks the source files with ESLint.
 
 Route data is exported from `src/trailData.js` and imported by `src/App.jsx`.
+
+## Application structure
+
+- `src/App.jsx` owns the search, region, and saved-route state and derives the visible routes from the trail data.
+- `src/components/` contains the page sections, route filters, and reusable trail cards. Props connect the app state to these components.
+- `src/trailData.js` contains the route collection and region options.
+
+Search, region buttons, saved-route bookmarks, and the saved-only filter update the displayed route list.
