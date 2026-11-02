@@ -1,4 +1,5 @@
 import { ArrowDownRight } from 'lucide-react'
+import { Link } from 'react-router-dom'
 
 function Hero() {
   return (
@@ -15,9 +16,9 @@ function Hero() {
         <p className="hero-description">
           A thoughtful shortlist of day hikes, made for fresh air, slower miles, and the long way home.
         </p>
-        <a className="hero-action" href="#routes">
+        <Link className="hero-action" to="/items">
           Explore the routes <ArrowDownRight size={18} aria-hidden="true" />
-        </a>
+        </Link>
       </div>
       <div className="hero-caption">
         <span className="caption-rule" />

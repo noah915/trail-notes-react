@@ -13,6 +13,12 @@ npm run dev
 
 Open the local URL printed by Vite, usually `http://localhost:5173`.
 
+## Route plan
+
+- `/` → Home
+- `/items` → Item list
+- `/items/:id` → Item details
+
 ## Project scripts
 
 - `npm run dev` starts the development server with hot reload.
@@ -24,8 +30,9 @@ Route data is exported from `src/trailData.js` and imported by `src/App.jsx`.
 
 ## Application structure
 
-- `src/App.jsx` owns the search, region, and saved-route state and derives the visible routes from the trail data.
-- `src/components/` contains the page sections, route filters, and reusable trail cards. Props connect the app state to these components.
+- `src/App.jsx` configures the routes and keeps saved-trail state available across views.
+- `src/pages/` contains the home, trail-list, and trail-details views. Trail details look up the record identified by the URL parameter and show a not-found message for invalid IDs.
+- `src/components/` contains shared navigation, page sections, route filters, and reusable trail cards.
 - `src/trailData.js` contains the route collection and region options.
 
-Search, region buttons, saved-route bookmarks, and the saved-only filter update the displayed route list.
+React Router handles client-side navigation. Search, region buttons, saved-route bookmarks, and the saved-only filter update the trail list.

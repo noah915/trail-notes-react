@@ -1,22 +1,23 @@
 import { ArrowUpRight, Mountain } from 'lucide-react'
+import { Link } from 'react-router-dom'
 
 function SiteHeader() {
   return (
     <header className="site-header" id="top">
-      <a className="brand" href="#top" aria-label="Trail Notes home">
+      <Link className="brand" to="/" aria-label="Trail Notes home">
         <span className="brand-mark"><Mountain size={20} strokeWidth={2.2} /></span>
         <span className="brand-copy">
           <strong>TRAIL NOTES</strong>
           <small>OUTDOOR FIELD GUIDE</small>
         </span>
-      </a>
+      </Link>
       <nav className="main-nav" aria-label="Main navigation">
-        <a href="#routes">Route library</a>
-        <a href="#field-note">Field note</a>
+        <Link to="/">Home</Link>
+        <Link to="/items">Route library</Link>
       </nav>
-      <a className="header-link" href="#routes">
+      <Link className="header-link" to="/items">
         Find a trail <ArrowUpRight size={16} aria-hidden="true" />
-      </a>
+      </Link>
     </header>
   )
 }

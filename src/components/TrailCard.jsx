@@ -1,4 +1,5 @@
 import { Bookmark, MapPin } from 'lucide-react'
+import { Link } from 'react-router-dom'
 
 function TrailCard({ trail, isSaved, onToggleSaved, order }) {
   return (
@@ -23,13 +24,16 @@ function TrailCard({ trail, isSaved, onToggleSaved, order }) {
         <p className="route-location">
           <MapPin size={14} aria-hidden="true" /> {trail.park} <span>/</span> {trail.region}
         </p>
-        <h3>{trail.name}</h3>
+        <h3><Link className="trail-card-link" to={`/items/${trail.id}`}>{trail.name}</Link></h3>
         <p className="route-description">{trail.description}</p>
         <dl className="route-facts">
           <div><dt>Distance</dt><dd>{trail.distance}</dd></div>
           <div><dt>Elevation</dt><dd>{trail.elevation}</dd></div>
           <div><dt>Time</dt><dd>{trail.time}</dd></div>
         </dl>
+        <Link className="trail-card-detail-link" to={`/items/${trail.id}`}>
+          View trail details
+        </Link>
       </div>
     </article>
   )
