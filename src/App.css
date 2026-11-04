@@ -9,6 +9,40 @@
   background: var(--paper);
 }
 
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.header-auth-state {
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.logout-button,
+.mobile-account-link {
+  padding: 8px 10px;
+  color: var(--pine);
+  background: transparent;
+  border: 1px solid #aebdb3;
+  border-radius: 2px;
+  cursor: pointer;
+  font-size: 11px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.mobile-account-link {
+  display: none;
+}
+
+.header-logout-error {
+  color: #a44734;
+  font-size: 11px;
+}
+
 .brand {
   display: inline-flex;
   align-items: center;
@@ -683,6 +717,185 @@
   font-size: 14px;
 }
 
+.auth-page,
+.account-page {
+  max-width: 760px;
+  min-height: 65vh;
+  margin: 0 auto;
+  padding: 74px 32px 88px;
+}
+
+.auth-page {
+  max-width: 560px;
+}
+
+.auth-page h1,
+.account-page > h1 {
+  margin: 12px 0 25px;
+  color: var(--ink);
+  font-family: Fraunces, Georgia, serif;
+  font-size: clamp(36px, 5vw, 52px);
+  font-weight: 500;
+  line-height: 1.1;
+}
+
+.auth-form {
+  display: grid;
+  gap: 10px;
+}
+
+.auth-form label {
+  margin-top: 7px;
+  color: var(--ink);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.auth-form input {
+  width: 100%;
+  min-height: 44px;
+  padding: 10px 12px;
+  color: var(--ink);
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 2px;
+}
+
+.auth-form button {
+  min-height: 44px;
+  margin-top: 10px;
+  padding: 10px 16px;
+  color: #fff;
+  background: var(--pine);
+  border: 0;
+  border-radius: 2px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.auth-form button:disabled {
+  cursor: wait;
+  opacity: 0.7;
+}
+
+.auth-form-footer {
+  margin-top: 22px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.auth-form-footer a,
+.auth-notice {
+  color: var(--pine);
+  font-weight: 700;
+}
+
+.auth-notice {
+  margin: 0 0 18px;
+  padding: 12px 14px;
+  background: var(--pine-light);
+  font-size: 13px;
+}
+
+.auth-error,
+.permission-message {
+  padding: 14px 16px;
+  color: #743523;
+  background: #f7e9e3;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.auth-message {
+  display: grid;
+  min-height: 55vh;
+  justify-items: center;
+  align-content: center;
+  padding: 40px 24px;
+  color: var(--muted);
+  text-align: center;
+}
+
+.auth-message h1 {
+  margin: 0 0 12px;
+  color: var(--ink);
+  font-family: Fraunces, Georgia, serif;
+  font-size: 38px;
+  font-weight: 500;
+}
+
+.signed-in-badge {
+  display: inline-block;
+  margin: 0 0 22px;
+  padding: 7px 10px;
+  color: var(--pine);
+  background: var(--pine-light);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.account-card {
+  margin: 10px 0 25px;
+  padding: 24px;
+  background: #fff;
+  border: 1px solid var(--line);
+}
+
+.account-card h2,
+.permission-message h2 {
+  margin: 0 0 16px;
+  color: var(--ink);
+  font-family: Fraunces, Georgia, serif;
+  font-size: 24px;
+  font-weight: 500;
+}
+
+.account-card dl {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 17px;
+  margin: 0;
+}
+
+.account-card dt {
+  margin-bottom: 5px;
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.account-card dd {
+  margin: 0;
+  color: var(--ink);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.api-success {
+  margin: 20px 0 0;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.permission-message {
+  margin: 12px 0 24px;
+}
+
+.permission-message p {
+  margin: 7px 0 0;
+}
+
+.account-card pre {
+  overflow: auto;
+  padding: 15px;
+  color: #e7eee8;
+  background: #18352f;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
 .empty-state {
   display: grid;
   min-height: 260px;
@@ -866,6 +1079,23 @@
     display: none;
   }
 
+  .header-actions {
+    gap: 7px;
+  }
+
+  .header-auth-state {
+    display: none;
+  }
+
+  .mobile-account-link {
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .logout-button {
+    padding: 8px;
+  }
+
   .header-link {
     gap: 5px;
     padding: 9px 10px;
@@ -1038,6 +1268,20 @@
   .site-footer {
     flex-wrap: wrap;
     padding: 18px 20px;
+  }
+
+  .auth-page,
+  .account-page {
+    min-height: 60vh;
+    padding: 56px 20px 64px;
+  }
+
+  .account-card {
+    padding: 18px;
+  }
+
+  .account-card dl {
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .site-footer > span:nth-child(2) {
